@@ -10,6 +10,6 @@ public class NailAndColourApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(NailAndColourApplication.class, args);
 	}
-	
+
 
 }
