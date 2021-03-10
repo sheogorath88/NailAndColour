@@ -1,12 +1,14 @@
 package com.nailandcolour;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.UUID;
 
 public interface AppointmentRepository {
 
-    void create(long id, List<Service> services, String address, LocalDate appointmentDataTime, BigDecimal price);
-
-
+    UUID create(
+            List<Service> services,
+            String address,
+            LocalDate appointmentDataTime,
+            Client client);
 }
