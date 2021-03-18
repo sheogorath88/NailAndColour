@@ -11,4 +11,6 @@ public interface AppointmentRepository {
             String address,
             LocalDate appointmentDataTime,
             Client client);
+
+    void read(UUID id);
 }

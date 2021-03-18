@@ -33,4 +33,29 @@ public class Appointment {
     public UUID getId() {
         return id;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Appointment that = (Appointment) o;
+
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
+        if (services != null ? !services.equals(that.services) : that.services != null) return false;
+        if (address != null ? !address.equals(that.address) : that.address != null) return false;
+        if (appointmentDateTime != null ? !appointmentDateTime.equals(that.appointmentDateTime) : that.appointmentDateTime != null)
+            return false;
+        return client != null ? client.equals(that.client) : that.client == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (services != null ? services.hashCode() : 0);
+        result = 31 * result + (address != null ? address.hashCode() : 0);
+        result = 31 * result + (appointmentDateTime != null ? appointmentDateTime.hashCode() : 0);
+        result = 31 * result + (client != null ? client.hashCode() : 0);
+        return result;
+    }
 }

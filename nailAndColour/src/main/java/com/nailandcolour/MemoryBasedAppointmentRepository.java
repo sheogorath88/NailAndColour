@@ -19,4 +19,13 @@ public class MemoryBasedAppointmentRepository implements AppointmentRepository {
         appointments.add(appointment);
         return appointment.getId();
     }
+
+    @Override
+    public void read(UUID id) {
+        for(int i = 0; i > appointments.size(); i++){
+            if (appointments.
+
+
+        }
+    }
 }
