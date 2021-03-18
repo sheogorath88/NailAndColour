@@ -58,4 +58,15 @@ public class Appointment {
         result = 31 * result + (client != null ? client.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Appointment{" +
+                "id=" + id +
+                ", services=" + services +
+                ", address='" + address + '\'' +
+                ", appointmentDateTime=" + appointmentDateTime +
+                ", client=" + client +
+                '}';
+    }
 }

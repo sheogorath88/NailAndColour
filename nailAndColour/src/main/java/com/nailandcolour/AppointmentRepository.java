@@ -12,5 +12,5 @@ public interface AppointmentRepository {
             LocalDate appointmentDataTime,
             Client client);
 
-    void read(UUID id);
+    void read(UUID id, List<Appointment> appointments);
 }
