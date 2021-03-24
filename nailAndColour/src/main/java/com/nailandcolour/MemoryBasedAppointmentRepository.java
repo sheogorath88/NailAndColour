@@ -21,13 +21,12 @@ public class MemoryBasedAppointmentRepository implements AppointmentRepository {
     }
 
     @Override
-    public void read(UUID id, List<Appointment> appointments) {
+    public Appointment read(UUID id) {
         for (Appointment appointment : appointments) {
             if (appointment.getId().equals(id)) {
-                System.out.println(appointment);
-            } else {
-                System.out.println("No appointment with this ID ");
+                return appointment;
             }
         }
+        throw new IllegalStateException("Didn't find appointment with id = " + id.toString());
     }
 }

@@ -7,4 +7,9 @@ public class Manicure implements Service {
     public BigDecimal price() {
         return new BigDecimal("50");
     }
+
+    @Override
+    public String toString() {
+        return "Manicure{}";
+    }
 }
