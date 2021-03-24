@@ -34,7 +34,19 @@ public class Appointment {
         return id;
     }
 
-    public Client getClient(){
+    public List<Service> getServices() {
+        return services;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public LocalDate getAppointmentDateTime() {
+        return appointmentDateTime;
+    }
+
+    public Client getClient() {
         return client;
     }
 
