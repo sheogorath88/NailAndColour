@@ -13,4 +13,15 @@ public interface AppointmentRepository {
             Client client);
 
     Appointment read(UUID id);
+
+    void delete(UUID id);
+
+    void updateServices(UUID id, List<Service> newServices);
+
+    void updateAddress(UUID id, String newAddress);
+
+    void updateAppointmentDataTime(UUID id, LocalDate newAppointmentDataTime);
+
+    void updateClient(UUID id, Client newClient);
+
 }

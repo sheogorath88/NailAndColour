@@ -50,6 +50,26 @@ public class Appointment {
         return client;
     }
 
+    public Appointment setServices(List<Service> services) {
+        this.services = services;
+        return this;
+    }
+
+    public Appointment setAddress(String address) {
+        this.address = address;
+        return this;
+    }
+
+    public Appointment setAppointmentDateTime(LocalDate appointmentDateTime) {
+        this.appointmentDateTime = appointmentDateTime;
+        return this;
+    }
+
+    public Appointment setClient(Client client) {
+        this.client = client;
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

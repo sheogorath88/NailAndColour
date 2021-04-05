@@ -1,9 +1,7 @@
 package com.nailandcolour;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 public class MemoryBasedAppointmentRepository implements AppointmentRepository {
 
@@ -19,7 +17,6 @@ public class MemoryBasedAppointmentRepository implements AppointmentRepository {
         appointments.add(appointment);
         return appointment.getId();
     }
-
     @Override
     public Appointment read(UUID id) {
         for (Appointment appointment : appointments) {
@@ -28,5 +25,52 @@ public class MemoryBasedAppointmentRepository implements AppointmentRepository {
             }
         }
         throw new IllegalStateException("Didn't find appointment with id = " + id.toString());
+    }
+
+    @Override
+    public void delete(UUID id) {
+        Iterator<Appointment> iterator = appointments.iterator();
+        while(iterator.hasNext()){
+            if(iterator.next().getId().equals(id)){
+                iterator.remove();
+            }
+        }
+    }
+
+    @Override
+    public void updateServices(UUID id, List<Service> newServices) {
+        for(Appointment appointment : appointments){
+            if(appointment.getId().equals(id)){
+                appointment.setServices(newServices);
+            }
+        }
+
+    }
+
+    @Override
+    public void updateAddress(UUID id, String newAddress) {
+        for(Appointment appointment : appointments){
+            if(appointment.getId().equals(id)){
+                appointment.setAddress(newAddress);
+            }
+        }
+    }
+
+    @Override
+    public void updateAppointmentDataTime(UUID id, LocalDate newAppointmentDataTime) {
+        for(Appointment appointment : appointments){
+            if(appointment.getId().equals(id)){
+                appointment.setAppointmentDateTime(newAppointmentDataTime);
+            }
+        }
+    }
+
+    @Override
+    public void updateClient(UUID id, Client newClient) {
+        for(Appointment appointment : appointments){
+            if(appointment.getId().equals(id)){
+                appointment.setClient(newClient);
+            }
+        }
     }
 }
