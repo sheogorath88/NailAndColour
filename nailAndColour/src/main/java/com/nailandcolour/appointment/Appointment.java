@@ -1,4 +1,7 @@
-package com.nailandcolour;
+package com.nailandcolour.appointment;
+
+import com.nailandcolour.users.Client;
+import com.nailandcolour.service.Service;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

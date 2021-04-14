@@ -1,4 +1,8 @@
-package com.nailandcolour;
+package com.nailandcolour.users;
+
+import com.nailandcolour.appointment.Appointment;
+import com.nailandcolour.appointment.AppointmentRepository;
+import com.nailandcolour.service.Service;
 
 import java.time.LocalDate;
 import java.util.List;

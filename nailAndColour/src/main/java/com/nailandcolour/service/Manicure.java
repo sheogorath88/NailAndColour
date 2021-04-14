@@ -1,4 +1,6 @@
-package com.nailandcolour;
+package com.nailandcolour.service;
+
+import com.nailandcolour.service.Service;
 
 import java.math.BigDecimal;
 

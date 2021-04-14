@@ -1,4 +1,4 @@
-package com.nailandcolour;
+package com.nailandcolour.users;
 
 public class Client {
 
@@ -35,8 +35,8 @@ public class Client {
             return this;
         }
 
-        public ClientBuilder setTelephoneNumber(int telephoneNumber) {
-            this.telephoneNumber = telephoneNumber;
+        public ClientBuilder setTelephoneNumber(String telephoneNumber) {
+            this.telephoneNumber = Integer.parseInt(telephoneNumber);
             return this;
         }
         public Client build(){
