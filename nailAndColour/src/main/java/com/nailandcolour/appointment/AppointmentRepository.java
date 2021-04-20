@@ -16,6 +16,8 @@ public interface AppointmentRepository {
             Client client);
 
     Appointment read(UUID id);
+    
+    Appointment readAll();
 
     void delete(UUID id);
 
