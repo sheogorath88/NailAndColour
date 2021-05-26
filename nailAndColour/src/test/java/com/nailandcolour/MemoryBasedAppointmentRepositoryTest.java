@@ -18,6 +18,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class MemoryBasedAppointmentRepositoryTest {
 
+//    MemoryBasedAppointmentRepository memoryBasedAppointmentRepository = new MemoryBasedAppointmentRepository();
+//    List<Service> services = new ArrayList<>();
+//        services.
+//    String address = "test address";
+//    LocalDate appointmentDateTime = LocalDate.now();
+//    Client client = new Client.ClientBuilder().build();
+
     @Test
     public void shouldIncludeListOfServicesAddressDateTimeClientAfterCreate() {
         //given

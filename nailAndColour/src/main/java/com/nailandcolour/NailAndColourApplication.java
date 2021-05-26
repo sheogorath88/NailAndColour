@@ -1,5 +1,7 @@
 package com.nailandcolour;
 
+import com.nailandcolour.appointment.AppointmentRepository;
+import com.nailandcolour.appointment.CSVBasedAppointmentRepository;
 import com.nailandcolour.appointment.MemoryBasedAppointmentRepository;
 import com.nailandcolour.service.Manicure;
 import com.nailandcolour.service.Service;
@@ -45,15 +47,8 @@ public class NailAndColourApplication {
 
         System.out.println(admin.readAppointment(idOfBookedAppointment));
 
-        try (Reader reader = Files.newBufferedReader(Paths.get("data\\client.csv"));
-             CSVReader csvReader = new CSVReader(reader)){
-
-            String[] user;
-            while (( user = csvReader.readNext()) != null){
-                System.out.println(String.join(", ", user));
-            }
-        } catch (IOException | CsvValidationException ex){
-            ex.printStackTrace();
-        }
+        String fileName = "data\\appointment.csv";
+        AppointmentRepository appointmentRepository = new CSVBasedAppointmentRepository(fileName);
+        appointmentRepository.readAll();
     }
 }

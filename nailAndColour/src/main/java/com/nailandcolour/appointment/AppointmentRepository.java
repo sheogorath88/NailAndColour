@@ -5,6 +5,7 @@ import com.nailandcolour.service.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 public interface AppointmentRepository {
@@ -17,7 +18,7 @@ public interface AppointmentRepository {
 
     Appointment read(UUID id);
     
-    Appointment readAll();
+    Set<Appointment> readAll();
 
     void delete(UUID id);
 

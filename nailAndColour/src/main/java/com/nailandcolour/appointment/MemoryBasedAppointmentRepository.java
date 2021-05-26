@@ -2,8 +2,6 @@ package com.nailandcolour.appointment;
 
 import com.nailandcolour.users.Client;
 import com.nailandcolour.service.Service;
-
-import java.io.IOException;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -17,9 +15,9 @@ public class MemoryBasedAppointmentRepository implements AppointmentRepository {
             String address,
             LocalDate appointmentDataTime,
             Client client) {
-        if(services == null || services.isEmpty()
-            || address == null || address.isBlank() || address.length() < 3
-            || address.trim().length() < 3){
+        if (services == null || services.isEmpty()
+                || address == null || address.isBlank() || address.length() < 3
+                || address.trim().length() < 3) {
             throw new IllegalStateException("bad data");
         }
 
@@ -39,11 +37,8 @@ public class MemoryBasedAppointmentRepository implements AppointmentRepository {
     }
 
     @Override
-    public Appointment readAll() {
-        for (Appointment appointment : appointments) {
-            return appointment;
-        }
-        throw new IllegalStateException("The appointment set is empty");
+    public Set<Appointment> readAll() {
+        return appointments;
     }
 
     @Override
@@ -58,7 +53,7 @@ public class MemoryBasedAppointmentRepository implements AppointmentRepository {
 
     @Override
     public void updateServices(UUID id, List<Service> newServices) {
-        if(newServices == null || newServices.isEmpty()){
+        if (newServices == null || newServices.isEmpty()) {
             throw new IllegalStateException();
         }
         for (Appointment appointment : appointments) {
@@ -70,9 +65,9 @@ public class MemoryBasedAppointmentRepository implements AppointmentRepository {
 
     @Override
     public void updateAddress(UUID id, String newAddress) {
-        if(newAddress == null || newAddress.isEmpty()
+        if (newAddress == null || newAddress.isEmpty()
                 || newAddress.length() < 3
-                || newAddress.trim().length() < 3){
+                || newAddress.trim().length() < 3) {
             throw new IllegalStateException();
         }
         for (Appointment appointment : appointments) {
@@ -84,7 +79,7 @@ public class MemoryBasedAppointmentRepository implements AppointmentRepository {
 
     @Override
     public void updateAppointmentDataTime(UUID id, LocalDate newAppointmentDataTime) {
-        if(newAppointmentDataTime == null || newAppointmentDataTime.isBefore(LocalDate.now())){
+        if (newAppointmentDataTime == null || newAppointmentDataTime.isBefore(LocalDate.now())) {
             throw new IllegalStateException();
         }
         for (Appointment appointment : appointments) {
@@ -96,7 +91,7 @@ public class MemoryBasedAppointmentRepository implements AppointmentRepository {
 
     @Override
     public void updateClient(UUID id, Client newClient) {
-        if(newClient == null){
+        if (newClient == null) {
             throw new IllegalStateException();
         }
         for (Appointment appointment : appointments) {
