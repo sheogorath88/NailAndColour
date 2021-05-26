@@ -9,7 +9,7 @@ public class TestRunner {
 
         int a, b = 3;
         int _ab = 4;
-        int 1nd = 4;
+
         
     }
 }
