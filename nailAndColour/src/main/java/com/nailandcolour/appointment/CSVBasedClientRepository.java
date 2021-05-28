@@ -27,14 +27,14 @@ public class CSVBasedClientRepository implements ClientRepository{
                 String clientAsString = clients.get(i);
                 String[] fieldsOfClient = clientAsString.split(",");
                 Client client = new Client.ClientBuilder()
+                        .setId(fieldsOfClient[0])
                         .setName(fieldsOfClient[1])
                         .setSurname(fieldsOfClient[2])
                         .setAddress(fieldsOfClient[3])
                         .setTelephoneNumber(fieldsOfClient[4])
                         .build();
                 clientList.add(client);
-
-
+                
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -54,6 +54,6 @@ public class CSVBasedClientRepository implements ClientRepository{
                 }
             }
         }
-        return null;
+        return clientList;
     }
 }

@@ -34,6 +34,7 @@ public class NailAndColourApplication {
                 new MemoryBasedAppointmentRepository()
         );
         Client client = new Client.ClientBuilder()
+                .setId("7")
                 .setName("Anna")
                 .setSurname("Kowalska")
                 .setAddress("Przykladowa 5")
