@@ -1,6 +1,6 @@
-id,name,surname,address,"telephone"
-1,Anna,Nowak,Potopowa 3,"665434434"
-2,Magdalena,Gora,Stawowa 765,"545676872"
-3,Malgorzata,Giemza,Tishnera 12,"567234890"
-4,Aleksandra,Oliwa,Zarzecze 56,"678321456"
-5,Jolanta,Wrona,Rydlowka 73,"789543654"
+id,name,surname,address,telephone
+d29690be-4599-492f-907a-65885ecb4b05,Anna,Nowak,Potopowa 3,665434434
+7deb9e3a-28cc-40c9-a9b6-3c2f89be9486,Magdalena,Gora,Stawowa 765,545676872
+5057cb22-718a-43fd-af78-fcf8aa6e15a9,Malgorzata,Giemza,Tishnera 12,567234890
+cb7bdf07-a3e4-4418-b368-3b1f29333da7,Aleksandra,Oliwa,Zarzecze 56,678321456
+ba516cf1-818b-4373-a774-9c8f3c719dc6,Jolanta,Wrona,Rydlowka 73,789543654

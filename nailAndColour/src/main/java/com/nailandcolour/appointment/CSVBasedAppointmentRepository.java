@@ -19,10 +19,13 @@ import java.util.*;
 
 public class CSVBasedAppointmentRepository implements AppointmentRepository {
 
-    public CSVBasedAppointmentRepository(String fileName) {
+    private String fileName;
+    private ClientRepository clientRepository;
+
+    public CSVBasedAppointmentRepository(String fileName, ClientRepository clientRepository) {
         this.fileName = fileName;
+        this.clientRepository = clientRepository;
     }
-    private String fileName = "data\\appointment.csv";
 
     @Override
     public UUID create(List<Service> services, String address, LocalDate appointmentDataTime, Client client) {
@@ -59,22 +62,24 @@ public class CSVBasedAppointmentRepository implements AppointmentRepository {
     @Override
     public Set<Appointment> readAll() {
         Set<Appointment> appointments = new HashSet<>();
+        try{
+            new java.io.File(".").getCanonicalPath();
+        } catch (Exception e){
+
+        }
         try (Reader reader = Files.newBufferedReader(Paths.get(fileName));
              CSVReader csvReader = new CSVReader(reader)) {
 
 //            ignore header
             String[] appoint = csvReader.readNext();
             while ((appoint = csvReader.readNext()) != null) {
-                for (int i = 0; i < appoint.length; i++) {
                     String address = appoint[2];
                     List<Service> services = convertCsvFieldToService(appoint[1]);
                     LocalDate appointmentDataTime = LocalDate.parse(appoint[3]);
-                    //TODO
-                    Client client = ClientRepository.read(appoint[5]);
-                    Appointment app = new Appointment(services, address, appointmentDataTime, client);
-                    System.out.println(app);
+                    Client client = clientRepository.read(appoint[4]);
+                    String appointmentId = appoint[0];
+                    Appointment app = new Appointment(appointmentId, services, address, appointmentDataTime, client);
                     appointments.add(app);
-                }
             }
         } catch (IOException | CsvValidationException ex) {
             ex.printStackTrace();

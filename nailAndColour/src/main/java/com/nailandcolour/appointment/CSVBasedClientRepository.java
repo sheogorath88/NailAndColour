@@ -1,5 +1,6 @@
 package com.nailandcolour.appointment;
 
+import com.nailandcolour.exceptions.ClientNotExistentException;
 import com.nailandcolour.users.Client;
 
 import java.io.BufferedReader;
@@ -8,11 +9,16 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 public class CSVBasedClientRepository implements ClientRepository{
 
-    String clientFile  = "data\\client.csv";
+    String clientFile;
+
+    public CSVBasedClientRepository(String clientFile) {
+        this.clientFile = clientFile;
+    }
 
     @Override
     public List<Client> readAll() {
@@ -55,5 +61,17 @@ public class CSVBasedClientRepository implements ClientRepository{
             }
         }
         return clientList;
+    }
+
+    @Override
+    public Client read(String id) {
+        UUID idOfSearchedClient = UUID.fromString(id);
+        List<Client> clients = readAll();
+        for (Client client : clients) {
+            if (client.getId().equals(idOfSearchedClient)){
+                return client;
+            }
+        }
+        throw new ClientNotExistentException("client with this id " + id + " doesn't exist");
     }
 }

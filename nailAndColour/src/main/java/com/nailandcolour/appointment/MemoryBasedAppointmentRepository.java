@@ -21,7 +21,7 @@ public class MemoryBasedAppointmentRepository implements AppointmentRepository {
             throw new IllegalStateException("bad data");
         }
 
-        Appointment appointment = new Appointment(services, address, appointmentDataTime, client);
+        Appointment appointment = new Appointment(UUID.randomUUID().toString(), services, address, appointmentDataTime, client);
         appointments.add(appointment);
         return appointment.getId();
     }

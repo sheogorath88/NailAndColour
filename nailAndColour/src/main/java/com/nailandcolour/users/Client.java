@@ -1,8 +1,10 @@
 package com.nailandcolour.users;
 
+import java.util.UUID;
+
 public class Client {
 
-    private int id;
+    private UUID id;
     private String name;
     private String surname;
     private String address;
@@ -16,15 +18,30 @@ public class Client {
         this.telephoneNumber = clientBuilder.telephoneNumber;
     }
 
+    public UUID getId() {
+        return id;
+    }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+            "id=" + id +
+            ", name='" + name + '\'' +
+            ", surname='" + surname + '\'' +
+            ", address='" + address + '\'' +
+            ", telephoneNumber=" + telephoneNumber +
+            '}';
+    }
+
     public static class ClientBuilder{
-        private int id;
+        private UUID id;
         private String name;
         private String surname;
         private String address;
         private int telephoneNumber;
 
         public ClientBuilder setId(String id){
-            this.id = Integer.parseInt(id);
+            this.id = UUID.fromString(id);
             return this;
         }
 
