@@ -5,5 +5,7 @@ import java.util.List;
 
 public interface ClientRepository {
 
-  public List<Client> readAll();
+  List<Client> readAll();
+
+  Client read(String id);
 }

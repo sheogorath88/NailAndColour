@@ -16,8 +16,8 @@ public class Appointment {
     private LocalDate appointmentDateTime;
     private Client client;
 
-    public Appointment(List<Service> services, String address, LocalDate appointmentDateTime, Client client) {
-        this.id = UUID.randomUUID();
+    public Appointment(String id, List<Service> services, String address, LocalDate appointmentDateTime, Client client) {
+        this.id = UUID.fromString(id);
         this.services = services;
         this.address = address;
         this.appointmentDateTime = appointmentDateTime;

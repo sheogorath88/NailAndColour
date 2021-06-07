@@ -1,7 +1,9 @@
 package com.nailandcolour;
 
+import com.nailandcolour.appointment.Appointment;
 import com.nailandcolour.appointment.AppointmentRepository;
 import com.nailandcolour.appointment.CSVBasedAppointmentRepository;
+import com.nailandcolour.appointment.CSVBasedClientRepository;
 import com.nailandcolour.appointment.MemoryBasedAppointmentRepository;
 import com.nailandcolour.service.Manicure;
 import com.nailandcolour.service.Service;
@@ -9,6 +11,8 @@ import com.nailandcolour.users.Admin;
 import com.nailandcolour.users.Client;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
+import java.util.Iterator;
+import java.util.Set;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.io.IOException;
@@ -34,7 +38,7 @@ public class NailAndColourApplication {
                 new MemoryBasedAppointmentRepository()
         );
         Client client = new Client.ClientBuilder()
-                .setId("7")
+                .setId("ba516cf1-818b-4373-a774-9c8f3c719dc6")
                 .setName("Anna")
                 .setSurname("Kowalska")
                 .setAddress("Przykladowa 5")
@@ -48,8 +52,15 @@ public class NailAndColourApplication {
 
         System.out.println(admin.readAppointment(idOfBookedAppointment));
 
-        String fileName = "data\\appointment.csv";
-        AppointmentRepository appointmentRepository = new CSVBasedAppointmentRepository(fileName);
-        appointmentRepository.readAll();
+        String appointmentsFileName = "data\\appointment.csv";
+        String clientFileName = "data\\client.csv";
+        AppointmentRepository appointmentRepository = new CSVBasedAppointmentRepository(
+            appointmentsFileName,
+            new CSVBasedClientRepository(clientFileName));
+        Set<Appointment> appointments = appointmentRepository.readAll();
+        Iterator<Appointment> iterator = appointments.iterator();
+        while (iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
     }
 }

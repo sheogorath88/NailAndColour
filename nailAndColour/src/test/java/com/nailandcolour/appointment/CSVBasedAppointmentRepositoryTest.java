@@ -24,8 +24,11 @@ class CSVBasedAppointmentRepositoryTest {
     @Test
     public void shouldReturnAppointments(){
         //given
-        String fileName = "test_appointments.csv";
-        CSVBasedAppointmentRepository csvBasedAppointmentRepository = new CSVBasedAppointmentRepository(fileName);
+        String appointmentsFileName = "src\\test\\resources\\test_appointments.csv";
+        String clientFileName = "src\\test\\resources\\test_clients.csv";
+        CSVBasedAppointmentRepository csvBasedAppointmentRepository = new CSVBasedAppointmentRepository(
+            appointmentsFileName, new CSVBasedClientRepository(clientFileName)
+            );
 
         //when
         Set<Appointment> appointments = csvBasedAppointmentRepository.readAll();
@@ -34,6 +37,6 @@ class CSVBasedAppointmentRepositoryTest {
         List<Appointment> appointmentList = new ArrayList<>(appointments);
         Assertions.assertTrue(appointments.size() == 1);
         Assertions.assertEquals("7453ae42-35cc-492c-a0fa-7aeced283073",
-                appointmentList.get(0));
+                appointmentList.get(0).getId().toString());
     }
 }
