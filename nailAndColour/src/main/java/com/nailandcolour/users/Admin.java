@@ -5,6 +5,7 @@ import com.nailandcolour.appointment.AppointmentRepository;
 import com.nailandcolour.service.Service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -22,12 +23,12 @@ public class Admin {
         this.appointmentRepository = appointmentRepository;
     }
 
-    public UUID bookAppointment(List<Service> services, String address, LocalDate appointmentDataTime, Client client){
+    public UUID bookAppointment(List<Service> services, String address, LocalDateTime appointmentDataTime, Client client) {
         System.out.println("Booking appointment");
         return appointmentRepository.create(services, address, appointmentDataTime, client);
     }
 
-    public Appointment readAppointment(UUID id){
+    public Appointment readAppointment(UUID id) {
         System.out.println("Print appointment");
         return appointmentRepository.read(id);
     }

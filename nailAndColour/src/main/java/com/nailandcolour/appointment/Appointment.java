@@ -4,7 +4,7 @@ import com.nailandcolour.users.Client;
 import com.nailandcolour.service.Service;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -13,19 +13,20 @@ public class Appointment {
     private UUID id;
     private List<Service> services;
     private String address;
-    private LocalDate appointmentDateTime;
+    private LocalDateTime appointmentDateTime;
     private Client client;
 
-    public Appointment(String id, List<Service> services, String address, LocalDate appointmentDateTime, Client client) {
+    public Appointment(String id, List<Service> services, String address, LocalDateTime appointmentDateTime, Client client) {
         this.id = UUID.fromString(id);
         this.services = services;
         this.address = address;
         this.appointmentDateTime = appointmentDateTime;
         this.client = client;
     }
-    public BigDecimal sumOfPrices(){
+
+    public BigDecimal sumOfPrices() {
         BigDecimal temp = new BigDecimal("0");
-        for(int i = 0; i < services.size(); i++){
+        for (int i = 0; i < services.size(); i++) {
             Service service = services.get(i);
             BigDecimal price = service.price();
             temp = temp.add(price);
@@ -45,7 +46,7 @@ public class Appointment {
         return address;
     }
 
-    public LocalDate getAppointmentDateTime() {
+    public LocalDateTime getAppointmentDateTime() {
         return appointmentDateTime;
     }
 
@@ -63,7 +64,7 @@ public class Appointment {
         return this;
     }
 
-    public Appointment setAppointmentDateTime(LocalDate appointmentDateTime) {
+    public Appointment setAppointmentDateTime(LocalDateTime appointmentDateTime) {
         this.appointmentDateTime = appointmentDateTime;
         return this;
     }

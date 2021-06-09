@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.*;
 
 public class CSVBasedAppointmentRepository implements AppointmentRepository {
@@ -28,15 +28,15 @@ public class CSVBasedAppointmentRepository implements AppointmentRepository {
     }
 
     @Override
-    public UUID create(List<Service> services, String address, LocalDate appointmentDataTime, Client client) {
+    public UUID create(List<Service> services, String address, LocalDateTime appointmentDataTime, Client client) {
         try {
             CSVWriter csvWriter = new CSVWriter(new FileWriter(fileName));
             String newService;
-            if(services.equals(new Manicure())){
+            if (services.equals(new Manicure())) {
                 newService = "M";
-            }else if(services.equals(new Pedicure())){
+            } else if (services.equals(new Pedicure())) {
                 newService = "P";
-            }else {
+            } else {
                 throw new UnrecognizableServiceException("bad service");
             }
             String newAppointmentDataTime = appointmentDataTime.toString();
@@ -62,9 +62,9 @@ public class CSVBasedAppointmentRepository implements AppointmentRepository {
     @Override
     public Set<Appointment> readAll() {
         Set<Appointment> appointments = new HashSet<>();
-        try{
+        try {
             new java.io.File(".").getCanonicalPath();
-        } catch (Exception e){
+        } catch (Exception e) {
 
         }
         try (Reader reader = Files.newBufferedReader(Paths.get(fileName));
@@ -73,13 +73,13 @@ public class CSVBasedAppointmentRepository implements AppointmentRepository {
 //            ignore header
             String[] appoint = csvReader.readNext();
             while ((appoint = csvReader.readNext()) != null) {
-                    String address = appoint[2];
-                    List<Service> services = convertCsvFieldToService(appoint[1]);
-                    LocalDate appointmentDataTime = LocalDate.parse(appoint[3]);
-                    Client client = clientRepository.read(appoint[4]);
-                    String appointmentId = appoint[0];
-                    Appointment app = new Appointment(appointmentId, services, address, appointmentDataTime, client);
-                    appointments.add(app);
+                String address = appoint[2];
+                List<Service> services = convertCsvFieldToService(appoint[1]);
+                LocalDateTime appointmentDataTime = LocalDateTime.parse(appoint[3]);
+                Client client = clientRepository.read(appoint[4]);
+                String appointmentId = appoint[0];
+                Appointment app = new Appointment(appointmentId, services, address, appointmentDataTime, client);
+                appointments.add(app);
             }
         } catch (IOException | CsvValidationException ex) {
             ex.printStackTrace();
@@ -103,7 +103,7 @@ public class CSVBasedAppointmentRepository implements AppointmentRepository {
     }
 
     @Override
-    public void updateAppointmentDataTime(UUID id, LocalDate newAppointmentDataTime) {
+    public void updateAppointmentDataTime(UUID id, LocalDateTime newAppointmentDataTime) {
 
     }
 

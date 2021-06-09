@@ -9,7 +9,7 @@ import com.nailandcolour.users.Client;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -32,7 +32,7 @@ public class MemoryBasedAppointmentRepositoryTest {
         List<Service> services = new ArrayList<>();
         services.add(new Manicure());
         String address = "test address";
-        LocalDate appointmentDateTime = LocalDate.now();
+        LocalDateTime appointmentDateTime = LocalDateTime.now();
         Client client = new Client.ClientBuilder().build();
 
         //when
@@ -51,7 +51,7 @@ public class MemoryBasedAppointmentRepositoryTest {
         //given
         MemoryBasedAppointmentRepository memoryBasedAppointmentRepository = new MemoryBasedAppointmentRepository();
         String address = "test address";
-        LocalDate appointmentDateTime = LocalDate.now();
+        LocalDateTime appointmentDateTime = LocalDateTime.now();
         Client client = new Client.ClientBuilder().build();
 
         //when
@@ -67,7 +67,7 @@ public class MemoryBasedAppointmentRepositoryTest {
         MemoryBasedAppointmentRepository memoryBasedAppointmentRepository = new MemoryBasedAppointmentRepository();
         List<Service> services = new ArrayList<>();
         String address = "test address";
-        LocalDate appointmentDateTime = LocalDate.now();
+        LocalDateTime appointmentDateTime = LocalDateTime.now();
         Client client = new Client.ClientBuilder().build();
 
         //when
@@ -83,7 +83,7 @@ public class MemoryBasedAppointmentRepositoryTest {
         MemoryBasedAppointmentRepository memoryBasedAppointmentRepository = new MemoryBasedAppointmentRepository();
         List<Service> services = new ArrayList<>();
         services.add(new Pedicure());
-        LocalDate appointmentDateTime = LocalDate.now();
+        LocalDateTime appointmentDateTime = LocalDateTime.now();
         Client client = new Client.ClientBuilder().build();
 
         //when
@@ -100,7 +100,7 @@ public class MemoryBasedAppointmentRepositoryTest {
         List<Service> services = new ArrayList<>();
         services.add(new Pedicure());
         String address = "";
-        LocalDate appointmentDateTime = LocalDate.now();
+        LocalDateTime appointmentDateTime = LocalDateTime.now();
         Client client = new Client.ClientBuilder().build();
 
         //when
@@ -117,7 +117,7 @@ public class MemoryBasedAppointmentRepositoryTest {
         List<Service> services = new ArrayList<>();
         services.add(new Pedicure());
         String address = "bf";
-        LocalDate appointmentDateTime = LocalDate.now();
+        LocalDateTime appointmentDateTime = LocalDateTime.now();
         Client client = new Client.ClientBuilder().build();
 
         //when
@@ -134,7 +134,7 @@ public class MemoryBasedAppointmentRepositoryTest {
         List<Service> services = new ArrayList<>();
         services.add(new Pedicure());
         String address = " m   ";
-        LocalDate appointmentDateTime = LocalDate.now();
+        LocalDateTime appointmentDateTime = LocalDateTime.now();
         Client client = new Client.ClientBuilder().build();
 
         //when
@@ -155,7 +155,7 @@ public class MemoryBasedAppointmentRepositoryTest {
         //when
         //then
         Assertions.assertThrows(IllegalStateException.class, () -> {
-            memoryBasedAppointmentRepository.create(services, address, null, client);
+            memoryBasedAppointmentRepository.create(services, address, (LocalDateTime) null, client);
         });
     }
 
@@ -165,7 +165,7 @@ public class MemoryBasedAppointmentRepositoryTest {
         MemoryBasedAppointmentRepository memoryBasedAppointmentRepository = new MemoryBasedAppointmentRepository();
         List<Service> services = new ArrayList<>();
         String address = "test address";
-        LocalDate appointmentDataTime = LocalDate.now();
+        LocalDateTime appointmentDataTime = LocalDateTime.now();
 
         //when
         //then
@@ -181,7 +181,7 @@ public class MemoryBasedAppointmentRepositoryTest {
         List<Service> services = new ArrayList<>();
         services.add(new Manicure());
         String address = "test address";
-        LocalDate appointmentDataTime = LocalDate.now();
+        LocalDateTime appointmentDataTime = LocalDateTime.now();
         Client client = new Client.ClientBuilder().build();
         UUID uuid = memoryBasedAppointmentRepository.create(services, address, appointmentDataTime, client);
 
@@ -210,7 +210,7 @@ public class MemoryBasedAppointmentRepositoryTest {
         List<Service> services = new ArrayList<>();
         services.add(new Manicure());
         String address = "test address";
-        LocalDate appointmentDataTime = LocalDate.now();
+        LocalDateTime appointmentDataTime = LocalDateTime.now();
         Client client = new Client.ClientBuilder().build();
         UUID uuid = memoryBasedAppointmentRepository.create(services, address, appointmentDataTime, client);
 
@@ -229,7 +229,7 @@ public class MemoryBasedAppointmentRepositoryTest {
         List<Service> services = new ArrayList<>();
         services.add(new Pedicure());
         String address = "test address";
-        LocalDate appointmentDataTime = LocalDate.now();
+        LocalDateTime appointmentDataTime = LocalDateTime.now();
         Client client = new Client.ClientBuilder().build();
         UUID uuid = memoryBasedAppointmentRepository.create(services, address, appointmentDataTime, client);
 
@@ -247,7 +247,7 @@ public class MemoryBasedAppointmentRepositoryTest {
         List<Service> services = new ArrayList<>();
         services.add(new Pedicure());
         String address = "test address";
-        LocalDate appointmentDataTime = LocalDate.now();
+        LocalDateTime appointmentDataTime = LocalDateTime.now();
         Client client = new Client.ClientBuilder().build();
         UUID uuid = memoryBasedAppointmentRepository.create(services, address, appointmentDataTime, client);
 
@@ -265,7 +265,7 @@ public class MemoryBasedAppointmentRepositoryTest {
         List<Service> services = new ArrayList<>();
         services.add(new Pedicure());
         String address = "test address";
-        LocalDate appointmentDataTime = LocalDate.now();
+        LocalDateTime appointmentDataTime = LocalDateTime.now();
         Client client = new Client.ClientBuilder().build();
         UUID uuid = memoryBasedAppointmentRepository.create(services, address, appointmentDataTime, client);
 
@@ -283,7 +283,7 @@ public class MemoryBasedAppointmentRepositoryTest {
         List<Service> services = new ArrayList<>();
         services.add(new Pedicure());
         String address = "test address";
-        LocalDate appointmentDataTime = LocalDate.now();
+        LocalDateTime appointmentDataTime = LocalDateTime.now();
         Client client = new Client.ClientBuilder().build();
         UUID uuid = memoryBasedAppointmentRepository.create(services, address, appointmentDataTime, client);
 
@@ -301,7 +301,7 @@ public class MemoryBasedAppointmentRepositoryTest {
         List<Service> services = new ArrayList<>();
         services.add(new Manicure());
         String address = "test address";
-        LocalDate appointmentDataTime = LocalDate.now();
+        LocalDateTime appointmentDataTime = LocalDateTime.now();
         Client client = new Client.ClientBuilder().build();
         UUID uuid = memoryBasedAppointmentRepository.create(services, address, appointmentDataTime, client);
         List<Service> newServices = new ArrayList<>();
@@ -322,7 +322,7 @@ public class MemoryBasedAppointmentRepositoryTest {
         List<Service> services = new ArrayList<>();
         services.add(new Pedicure());
         String address = "test address";
-        LocalDate appointmentDataTime = LocalDate.now();
+        LocalDateTime appointmentDataTime = LocalDateTime.now();
         Client client = new Client.ClientBuilder().build();
         UUID uuid = memoryBasedAppointmentRepository.create(services, address, appointmentDataTime, client);
 
@@ -340,7 +340,7 @@ public class MemoryBasedAppointmentRepositoryTest {
         List<Service> services = new ArrayList<>();
         services.add(new Pedicure());
         String address = "test address";
-        LocalDate appointmentDataTime = LocalDate.now();
+        LocalDateTime appointmentDataTime = LocalDateTime.now();
         Client client = new Client.ClientBuilder().build();
         UUID uuid = memoryBasedAppointmentRepository.create(services, address, appointmentDataTime, client);
         List<Service> newServices = new ArrayList<>();
@@ -359,10 +359,10 @@ public class MemoryBasedAppointmentRepositoryTest {
         List<Service> services = new ArrayList<>();
         services.add(new Manicure());
         String address = "test address";
-        LocalDate appointmentDataTime = LocalDate.now();
+        LocalDateTime appointmentDataTime = LocalDateTime.now();
         Client client = new Client.ClientBuilder().build();
         UUID uuid = memoryBasedAppointmentRepository.create(services, address, appointmentDataTime, client);
-        LocalDate newAppointmentDataTime = LocalDate.of(2021, 12, 15);
+        LocalDateTime newAppointmentDataTime = LocalDateTime.of(2021, 12, 15, 12, 30);
 
         // when
         memoryBasedAppointmentRepository.updateAppointmentDataTime(uuid, newAppointmentDataTime);
@@ -379,14 +379,14 @@ public class MemoryBasedAppointmentRepositoryTest {
         List<Service> services = new ArrayList<>();
         services.add(new Pedicure());
         String address = "test address";
-        LocalDate appointmentDataTime = LocalDate.now();
+        LocalDateTime appointmentDataTime = LocalDateTime.now();
         Client client = new Client.ClientBuilder().build();
         UUID uuid = memoryBasedAppointmentRepository.create(services, address, appointmentDataTime, client);
 
         // when
         // then
         Assertions.assertThrows(IllegalStateException.class, () -> {
-            memoryBasedAppointmentRepository.updateAppointmentDataTime(uuid, null);
+            memoryBasedAppointmentRepository.updateAppointmentDataTime(uuid, (LocalDateTime) null);
         });
     }
 
@@ -397,10 +397,10 @@ public class MemoryBasedAppointmentRepositoryTest {
         List<Service> services = new ArrayList<>();
         services.add(new Pedicure());
         String address = "test address";
-        LocalDate appointmentDataTime = LocalDate.now();
+        LocalDateTime appointmentDataTime = LocalDateTime.now();
         Client client = new Client.ClientBuilder().build();
         UUID uuid = memoryBasedAppointmentRepository.create(services, address, appointmentDataTime, client);
-        LocalDate newLocalData = LocalDate.of(2020, 12, 15);
+        LocalDateTime newLocalData = LocalDateTime.of(2020, 12, 15, 12, 15);
 
         // when
         // then
@@ -416,7 +416,7 @@ public class MemoryBasedAppointmentRepositoryTest {
         List<Service> services = new ArrayList<>();
         services.add(new Manicure());
         String address = "test address";
-        LocalDate appointmentDataTime = LocalDate.now();
+        LocalDateTime appointmentDataTime = LocalDateTime.now();
         Client client = new Client.ClientBuilder().build();
         UUID uuid = memoryBasedAppointmentRepository.create(services, address, appointmentDataTime, client);
         Client newClient = new Client.ClientBuilder().build();
@@ -436,7 +436,7 @@ public class MemoryBasedAppointmentRepositoryTest {
         List<Service> services = new ArrayList<>();
         services.add(new Pedicure());
         String address = "test address";
-        LocalDate appointmentDataTime = LocalDate.now();
+        LocalDateTime appointmentDataTime = LocalDateTime.now();
         Client client = new Client.ClientBuilder().build();
         UUID uuid = memoryBasedAppointmentRepository.create(services, address, appointmentDataTime, client);
 

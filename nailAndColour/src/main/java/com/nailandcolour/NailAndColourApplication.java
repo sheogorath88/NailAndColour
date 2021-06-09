@@ -11,6 +11,8 @@ import com.nailandcolour.users.Admin;
 import com.nailandcolour.users.Client;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
+
+import java.time.LocalDateTime;
 import java.util.Iterator;
 import java.util.Set;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -48,7 +50,7 @@ public class NailAndColourApplication {
         List<Service> services = new ArrayList<>();
         services.add(new Manicure());
 
-        UUID idOfBookedAppointment = admin.bookAppointment(services, admin.getAddress(), LocalDate.now(), client);
+        UUID idOfBookedAppointment = admin.bookAppointment(services, admin.getAddress(), LocalDateTime.now(), client);
 
         System.out.println(admin.readAppointment(idOfBookedAppointment));
 

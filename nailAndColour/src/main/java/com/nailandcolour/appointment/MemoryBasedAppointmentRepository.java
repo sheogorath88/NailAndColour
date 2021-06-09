@@ -2,7 +2,8 @@ package com.nailandcolour.appointment;
 
 import com.nailandcolour.users.Client;
 import com.nailandcolour.service.Service;
-import java.time.LocalDate;
+
+import java.time.LocalDateTime;
 import java.util.*;
 
 public class MemoryBasedAppointmentRepository implements AppointmentRepository {
@@ -13,7 +14,7 @@ public class MemoryBasedAppointmentRepository implements AppointmentRepository {
     public UUID create(
             List<Service> services,
             String address,
-            LocalDate appointmentDataTime,
+            LocalDateTime appointmentDataTime,
             Client client) {
         if (services == null || services.isEmpty()
                 || address == null || address.isBlank() || address.length() < 3
@@ -78,8 +79,8 @@ public class MemoryBasedAppointmentRepository implements AppointmentRepository {
     }
 
     @Override
-    public void updateAppointmentDataTime(UUID id, LocalDate newAppointmentDataTime) {
-        if (newAppointmentDataTime == null || newAppointmentDataTime.isBefore(LocalDate.now())) {
+    public void updateAppointmentDataTime(UUID id, LocalDateTime newAppointmentDataTime) {
+        if (newAppointmentDataTime == null || newAppointmentDataTime.isBefore(LocalDateTime.now())) {
             throw new IllegalStateException();
         }
         for (Appointment appointment : appointments) {

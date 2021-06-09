@@ -25,22 +25,22 @@ public class Client {
     @Override
     public String toString() {
         return "Client{" +
-            "id=" + id +
-            ", name='" + name + '\'' +
-            ", surname='" + surname + '\'' +
-            ", address='" + address + '\'' +
-            ", telephoneNumber=" + telephoneNumber +
-            '}';
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", address='" + address + '\'' +
+                ", telephoneNumber=" + telephoneNumber +
+                '}';
     }
 
-    public static class ClientBuilder{
+    public static class ClientBuilder {
         private UUID id;
         private String name;
         private String surname;
         private String address;
         private int telephoneNumber;
 
-        public ClientBuilder setId(String id){
+        public ClientBuilder setId(String id) {
             this.id = UUID.fromString(id);
             return this;
         }
@@ -64,7 +64,8 @@ public class Client {
             this.telephoneNumber = Integer.parseInt(telephoneNumber);
             return this;
         }
-        public Client build(){
+
+        public Client build() {
             return new Client(this);
         }
     }
