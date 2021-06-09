@@ -4,17 +4,24 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.when;
 
 class CSVBasedAppointmentRepositoryTest {
 
+    @Mock
+    private ClientRepository clientRepository;
+
     @BeforeEach
     void setUp() {
+        MockitoAnnotations.openMocks(this);
     }
 
     @AfterEach
@@ -26,9 +33,9 @@ class CSVBasedAppointmentRepositoryTest {
         //given
         String appointmentsFileName = "src\\test\\resources\\test_appointments.csv";
         String clientFileName = "src\\test\\resources\\test_clients.csv";
+        when(clientRepository.readAll()).thenReturn(new ArrayList<>());
         CSVBasedAppointmentRepository csvBasedAppointmentRepository = new CSVBasedAppointmentRepository(
-            appointmentsFileName, new CSVBasedClientRepository(clientFileName)
-            );
+            appointmentsFileName, clientRepository);
 
         //when
         Set<Appointment> appointments = csvBasedAppointmentRepository.readAll();
