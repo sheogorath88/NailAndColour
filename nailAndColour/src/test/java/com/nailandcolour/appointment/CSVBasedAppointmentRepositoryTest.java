@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 class CSVBasedAppointmentRepositoryTest {
@@ -45,5 +44,20 @@ class CSVBasedAppointmentRepositoryTest {
         Assertions.assertTrue(appointments.size() == 1);
         Assertions.assertEquals("7453ae42-35cc-492c-a0fa-7aeced283073",
                 appointmentList.get(0).getId().toString());
+    }
+
+    @Test
+    public void shouldThrowExceptionAndNotReadAllAppointments() {
+        //given
+        String appointmentsFileName = "src\\test\\resources\\test_appointments.csv";
+        String clientFileName = "src\\test\\resources\\test_clients.csv";
+        when(clientRepository.readAll()).thenThrow(new IllegalStateException());
+
+        //when
+        //then
+
+        Assertions.assertThrows(Exception.class, () -> {
+            clientRepository.readAll();
+        });
     }
 }
