@@ -1,21 +1,37 @@
 package com.nailandcolour;
 
 import com.nailandcolour.appointment.*;
+import com.nailandcolour.database.servives.AppointmentService;
 import com.nailandcolour.service.Manicure;
 import com.nailandcolour.service.Service;
 import com.nailandcolour.users.Admin;
 import com.nailandcolour.users.Client;
-import org.springframework.boot.SpringApplication;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
+import org.springframework.context.annotation.ComponentScan;
 
 import java.time.LocalDateTime;
 import java.util.*;
 
+@ConfigurationPropertiesScan("com.nailandcolour")
+@ComponentScan(basePackages = {"com.nailandcolour"})
 @SpringBootApplication
 public class NailAndColourApplication {
 
+    @Autowired
+    private AppointmentService appointmentService;
+
     public static void main(String[] args) {
-        SpringApplication.run(NailAndColourApplication.class, args);
+//        SpringApplication.run(NailAndColourApplication.class, args);
+
+//    createServicesByHand();
+
+        NailAndColourApplication nailAndColourApplication = new NailAndColourApplication();
+
+        List<com.nailandcolour.database.dto.Appointment> appointments = nailAndColourApplication.appointmentService.readAll();
+
+
     }
 
     private static void createServicesByHand() {
@@ -50,5 +66,6 @@ public class NailAndColourApplication {
         while (iterator.hasNext()) {
             System.out.println(iterator.next());
         }
+
     }
 }

@@ -4,13 +4,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.io.Serializable;
 import java.time.Instant;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "date_time")
-public class DateTime implements Serializable {
+public class DateTime {
 
     @Id
     @Column(name = "date_time_id")

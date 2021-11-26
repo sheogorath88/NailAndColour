@@ -4,11 +4,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.io.Serializable;
 
 @Entity
 @Table(name = "appointment")
-public class Appointment implements Serializable {
+public class Appointment {
 
     @Id
     @Column(name = "appointment_id")
@@ -57,28 +56,49 @@ public class Appointment implements Serializable {
         return clientId;
     }
 
-    public Appointment setAppointmentId(int appointmentId) {
+//    public Appointment setAppointmentId(int appointmentId) {
+//        this.appointmentId = appointmentId;
+//        return this;
+//    }
+//
+//    public Appointment setDateTimeId(int dateTimeId) {
+//        this.dateTimeId = dateTimeId;
+//        return this;
+//    }
+//
+//    public Appointment setEmployeeId(int employeeId) {
+//        this.employeeId = employeeId;
+//        return this;
+//    }
+//
+//    public Appointment setServiceId(int serviceId) {
+//        this.serviceId = serviceId;
+//        return this;
+//    }
+//
+//    public Appointment setClientId(int clientId) {
+//        this.clientId = clientId;
+//        return this;
+//    }
+
+
+    public void setAppointmentId(int appointmentId) {
         this.appointmentId = appointmentId;
-        return this;
     }
 
-    public Appointment setDateTimeId(int dateTimeId) {
+    public void setDateTimeId(int dateTimeId) {
         this.dateTimeId = dateTimeId;
-        return this;
     }
 
-    public Appointment setEmployeeId(int employeeId) {
+    public void setEmployeeId(int employeeId) {
         this.employeeId = employeeId;
-        return this;
     }
 
-    public Appointment setServiceId(int serviceId) {
+    public void setServiceId(int serviceId) {
         this.serviceId = serviceId;
-        return this;
     }
 
-    public Appointment setClientId(int clientId) {
+    public void setClientId(int clientId) {
         this.clientId = clientId;
-        return this;
     }
 }

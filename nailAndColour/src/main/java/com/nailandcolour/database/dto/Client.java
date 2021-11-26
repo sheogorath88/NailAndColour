@@ -4,11 +4,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.io.Serializable;
 
 @Entity
 @Table(name = "client")
-public class Client implements Serializable {
+public class Client {
 
     @Id
     @Column(name = "client_id")
