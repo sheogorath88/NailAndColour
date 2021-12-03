@@ -1,4 +1,4 @@
-package com.nailandcolour.database.servives;
+package com.nailandcolour.database.services;
 
 import com.nailandcolour.database.dto.Appointment;
 import com.nailandcolour.database.repositories.AppointmentRepository;

@@ -1,4 +1,4 @@
-package com.nailandcolour.database.servives;
+package com.nailandcolour.database.services;
 
 import org.springframework.stereotype.Service;
 

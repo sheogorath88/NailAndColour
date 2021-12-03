@@ -1,4 +1,4 @@
-package com.nailandcolour.database.servives;
+package com.nailandcolour.database.services;
 
 import com.nailandcolour.database.repositories.AddressRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,12 +1,13 @@
 package com.nailandcolour;
 
 import com.nailandcolour.appointment.*;
-import com.nailandcolour.database.servives.AppointmentService;
+import com.nailandcolour.database.services.AppointmentService;
 import com.nailandcolour.service.Manicure;
 import com.nailandcolour.service.Service;
 import com.nailandcolour.users.Admin;
 import com.nailandcolour.users.Client;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.context.annotation.ComponentScan;
@@ -23,14 +24,23 @@ public class NailAndColourApplication {
     private AppointmentService appointmentService;
 
     public static void main(String[] args) {
-//        SpringApplication.run(NailAndColourApplication.class, args);
+        SpringApplication.run(NailAndColourApplication.class, args);
 
 //    createServicesByHand();
+//
+//        NailAndColourApplication nailAndColourApplication = new NailAndColourApplication();
+//
+//        List<com.nailandcolour.database.dto.Appointment> appointments =
+//                nailAndColourApplication.appointmentService.readAll();
 
-        NailAndColourApplication nailAndColourApplication = new NailAndColourApplication();
+        Scanner scanner = new Scanner(System.in);
+        String abc = scanner.next();
 
-        List<com.nailandcolour.database.dto.Appointment> appointments = nailAndColourApplication.appointmentService.readAll();
-
+        while (true) {
+            System.out.println("Podaj znak");
+            abc = scanner.next();
+            System.out.println("Podałeś znak: " + abc);
+        }
 
     }
 
