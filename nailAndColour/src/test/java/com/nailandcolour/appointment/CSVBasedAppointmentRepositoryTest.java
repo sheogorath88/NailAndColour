@@ -1,6 +1,5 @@
 package com.nailandcolour.appointment;
 
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -21,10 +20,6 @@ class CSVBasedAppointmentRepositoryTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-    }
-
-    @AfterEach
-    void tearDown() {
     }
 
     @Test
